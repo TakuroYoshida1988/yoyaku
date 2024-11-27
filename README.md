@@ -108,7 +108,3 @@ MAIL_FROM_NAME="${APP_NAME}"
 - 動作環境：`http://localhost/`
 - phpMyAdmin：`http://localhost:8080/`
 - MailHog：`http://localhost:8025/`
-<<<<<<< HEAD
-
-=======
->>>>>>> 384c5ba (Remove docker/mysql/data/ from repository)
