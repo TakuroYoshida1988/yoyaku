@@ -1,0 +1,40 @@
+/* 全体のコンテナ */
+.shop-container {
+    max-width: 100%;
+    padding: 0 10px;
+    /* 左右の端に少しだけ余白 */
+    margin: 0 auto;
+}
+
+/* グリッドレイアウトの設定 */
+.shop-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* デフォルトで4列 */
+    grid-gap: 20px;
+    padding: 10px;
+    margin: 0;
+    width: 100%;
+}
+
+/* 検索フォームのスタイル */
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form .form-select,
+.search-form input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* メディアクエリで列数を変更 */
+/* 横幅が800px以下の場合、2列表示 */
+@media (max-width: 800px) {
+    .shop-list {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2列 */
+    }
+}

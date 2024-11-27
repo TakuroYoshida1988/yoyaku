@@ -1,0 +1,82 @@
+.shop-detail-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.shop-info {
+    width: 60%;
+}
+
+.shop-info h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.shop-info p {
+    margin: 10px 0;
+}
+
+.shop-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.reservation-box {
+    width: 35%;
+    background-color: #007bff;
+    padding: 20px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.reservation-box h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.reservation-summary {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.reservation-summary p {
+    margin: 5px 0;
+}
+
+.btn-reserve {
+    width: 100%;
+    padding: 15px;
+    background-color: #0056b3;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-reserve:hover {
+    background-color: #003e7f;
+}

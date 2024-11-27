@@ -1,0 +1,48 @@
+/* ハンバーガーメニューの全体スタイル */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* メニューリストのスタイル */
+.menu-list {
+    list-style-type: none;
+    text-align: center;
+}
+
+.menu-list li {
+    margin: 20px 0;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 2rem;
+}
+
+.menu-list a:hover {
+    color: #0056b3;
+}
+
+/* 閉じるボタンのスタイル */
+.menu-close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.menu-close-btn:hover {
+    color: #0056b3;
+}
