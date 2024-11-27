@@ -38,7 +38,7 @@
 
 管理者（admin）の名前、メールアドレス、パスワードは以下の通りです。
 
-name:Admin、email:admin@example.com、password:adminpassword
+name : Admin、email : admin@example.com、password : adminpassword
 
 店舗管理者と一般ユーザーのサンプルの名前、メールアドレス、パスワードは以下の通りです。
 
