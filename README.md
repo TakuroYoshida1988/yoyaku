@@ -42,9 +42,9 @@ name:Admin、email:admin@example.com、password:adminpassword
 
 店舗管理者と一般ユーザーのサンプルの名前、メールアドレス、パスワードは以下の通りです。
 
-店舗管理者　name:ShopManager-example、email:ShopManager@example.com、password:ShopManagerpassword
+店舗管理者　name : ShopManager-example、email : ShopManager@example.com、password : ShopManagerpassword
 
-一般ユーザーname:User-example、email:User@example.com、password:Userpassword
+一般ユーザー name : User-example、email : User@example.com、password : Userpassword
 
 ## 環境構築
 
