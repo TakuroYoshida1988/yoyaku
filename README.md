@@ -92,6 +92,12 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 これにより、開発中に送信されるすべてのメールがMailHogで確認できるようになります。
 
+### STRIPEの設定
+- `.env` ファイルに以下の設定を追加します。これにより、STRIPEでの決済機能をテストモードで実行できます。
+
+STRIPE_KEY=pk_test_51QHQpuAhHzFtXlkfNpveoaQjqa7ynfHohNJYc5ny25LkmztayiNHBOijM10WnwiGvomvdO8RUcaJY20cJWZb6Wpx00xau9mgYh
+STRIPE_SECRET=sk_test_51QHQpuAhHzFtXlkfaN8pqBK0BW6qxabLac7NNsbyiWn6fjegZj9juzFycdJZ1cpSKD7gIORBpEWvYRRqU0NeaqnZ00Hx6alCI8
+
 ## 使用技術
 - PHP 8.0
 - Laravel 10.0
