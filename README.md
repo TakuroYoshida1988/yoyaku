@@ -37,10 +37,13 @@
 ・決済機能（店舗予約時にStripeを利用して決済をすることができる）
 
 管理者（admin）の名前、メールアドレス、パスワードは以下の通りです。
+
 name:Admin、email:admin@example.com、password:adminpassword
 
 店舗管理者と一般ユーザーのサンプルの名前、メールアドレス、パスワードは以下の通りです。
+
 店舗管理者　name:ShopManager-example、email:ShopManager@example.com、password:ShopManagerpassword
+
 一般ユーザーname:User-example、email:User@example.com、password:Userpassword
 
 ## 環境構築
@@ -58,6 +61,7 @@ name:Admin、email:admin@example.com、password:adminpassword
 4. `php artisan key:generate`
 5. `php artisan migrate`
 6. `php artisan db:seed`
+   
 
 ## MailHogの使用方法
 
@@ -71,12 +75,19 @@ MailHogは、開発環境でのメール送信をテストするためのツー�
 - `.env` ファイルに以下の設定を追加します。これにより、Laravelがメール送信時にMailHogを使用するようになります。
 
 MAIL_MAILER=smtp
+
 MAIL_HOST=mailhog
+
 MAIL_PORT=1025
+
 MAIL_USERNAME=null
+
 MAIL_PASSWORD=null
+
 MAIL_ENCRYPTION=null
+
 MAIL_FROM_ADDRESS="noreply@example.com"
+
 MAIL_FROM_NAME="${APP_NAME}"
 
 これにより、開発中に送信されるすべてのメールがMailHogで確認できるようになります。
@@ -88,10 +99,10 @@ MAIL_FROM_NAME="${APP_NAME}"
 - MailHog
 
 ## テーブル設計
-
+![table](https://github.com/user-attachments/assets/b43f7c22-027e-4a6d-9fca-b702d05d8f8b)
 
 ## ER図
-
+![ER](https://github.com/user-attachments/assets/e435c362-7564-4fe4-87be-e05dd3986ed9)
 
 ## URL
 - 動作環境：`http://localhost/`
