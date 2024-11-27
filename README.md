@@ -36,11 +36,11 @@
 ・QRコード（各予約情報にQRコードが割り付けらる）
 ・決済機能（店舗予約時にStripeを利用して決済をすることができる）
 
-管理者（admin）の名前、メールアドレス、パスワードは以下の通りです。
+*管理者（admin）の名前、メールアドレス、パスワードは以下の通りです。
 
 name : Admin、email : admin@example.com、password : adminpassword
 
-店舗管理者と一般ユーザーのサンプルの名前、メールアドレス、パスワードは以下の通りです。
+*店舗管理者と一般ユーザーのサンプルの名前、メールアドレス、パスワードは以下の通りです。
 
 店舗管理者　name : ShopManager-example、email : ShopManager@example.com、password : ShopManagerpassword
 
