@@ -1,2 +1,4 @@
 *
+!shops/
+!shops/**
 !.gitignore
