@@ -73,6 +73,12 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ・一般ユーザーは店舗一覧を並び替えることができる（ランダム、評価が高い順、評価が低い順）
 
+# csvインポート機能
+
+・管理ユーザーは管理画面からcsvをインポートすることで、店舗情報を追加することができる。（項目は全て入力必須、店舗名：50文字以内、地域：「東京都」「大阪府」「福岡県」のいずれか、ジャンル：「寿司」「焼肉」「イタリアン」「居酒屋」「ラーメン」のいずれか、店舗概要：400文字以内、画像URL：jpeg、pngのみアップロード可能）
+
+![management](https://github.com/user-attachments/assets/e25c310b-1c25-4f2b-a0d5-57d2e476a77e)
+
 ## 環境構築
 
 ### Dockerビルド
