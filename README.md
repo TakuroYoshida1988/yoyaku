@@ -46,7 +46,7 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 一般ユーザー name : User-example、email : User@example.com、password : Userpassword
 
-# 追加機能
+# 新規追加機能
 ・口コミ機能
 ・店舗一覧ソート機能
 ・csvインポート機能
@@ -55,9 +55,11 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ・一般ユーザーは店舗に対し口コミを追加することができる。
 ・口コミは「テキスト・星(1~5)・画像」で構成されている。
-    - テキスト：400文字以内、自由記述
-    - 星(1~5)：選択式
-    - 画像：jpeg、pngのみアップロード可能
+
+    テキスト：400文字以内、自由記述
+    星(1~5)：選択式
+    画像：jpeg、pngのみアップロード可能
+    
 ・一般ユーザーは1店舗に対し2件以上の口コミを追加することはできない。
 ・一般ユーザーは自身が追加した口コミの内容を編集することができる。
 ・一般ユーザーは自身が追加した口コミを削除することができる。
