@@ -65,6 +65,8 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ・管理ユーザーは全ての口コミを削除することができる。
 
+![review](https://github.com/user-attachments/assets/3f4997f3-43d9-4813-90b5-e5f4ec77082f)
+
 ## 環境構築
 
 ### Dockerビルド
