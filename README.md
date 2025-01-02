@@ -51,7 +51,7 @@ name : Admin、email : admin@example.com、password : adminpassword
 ・店舗一覧ソート機能
 ・csvインポート機能
 
-口コミ機能
+# 口コミ機能
 
 ・一般ユーザーは店舗詳細ページから店舗に対し口コミを追加することができる。
 
@@ -69,7 +69,7 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ![review2](https://github.com/user-attachments/assets/6b7a2f5b-619a-45a7-9c77-0d160026a954)
 
-店舗一覧ソート機能
+# 店舗一覧ソート機能
 
 ・一般ユーザーは店舗一覧を並び替えることができる（ランダム、評価が高い順、評価が低い順）
 
