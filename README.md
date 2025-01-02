@@ -137,7 +137,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 - MailHog
 
 ## テーブル設計
-![テーブル仕様書追加2](https://github.com/user-attachments/assets/5679b1c2-7ab3-4a7a-93d6-6e1d1c391653)
+![テーブル仕様書追加2](https://github.com/user-attachments/assets/93c7a168-ac45-4134-9e2b-bf1c410cdb26)
 
 ## ER図
 ![ER図追加](https://github.com/user-attachments/assets/ece6dccd-fefe-4520-ad2f-55d78aa7dac8)
