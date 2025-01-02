@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use App\Models\Review; // 必ず正しい名前空間をインポートする
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        parent::boot();
+
+        // 明示的なモデルバインディングの設定
+        Route::model('review', Review::class);
+
         $this->configureRateLimiting();
 
         $this->routes(function () {

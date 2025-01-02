@@ -45,6 +45,11 @@
         <button onclick="window.location.href='{{ route('admin.createManager') }}'">店舗代表者作成</button>
         <button onclick="window.location.href='{{ route('admin.sendEmailForm') }}'">メール送信</button>
 
+        <button onclick="window.location.href='{{ route('shops.index') }}'">店舗一覧</button>
+
+        <button onclick="window.location.href='{{ route('admin.importCsvForm') }}'" class="btn btn-primary">新規店舗追加（CSVインポート）</button>
+
+
          <!-- ログアウトボタン -->
         <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display: inline;">
                 @csrf

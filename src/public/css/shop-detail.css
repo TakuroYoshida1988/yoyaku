@@ -1,11 +1,20 @@
+/* 全体のコンテナ */
 .shop-detail-container {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* レスポンシブ対応 */
 }
 
+/* 左側の店舗情報 */
 .shop-info {
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .shop-info h2 {
@@ -23,12 +32,18 @@
     margin-bottom: 20px;
 }
 
+/* 予約ボックス */
 .reservation-box {
     width: 35%;
     background-color: #007bff;
     padding: 20px;
     color: #fff;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 15px;
 }
 
 .reservation-box h3 {
@@ -79,4 +94,124 @@
 
 .btn-reserve:hover {
     background-color: #003e7f;
+}
+
+/* 口コミ部分 */
+.reviews-container {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.reviews-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.review-card {
+    padding: 15px 0;
+    margin-bottom: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.review-card:first-child {
+    border-top: none;
+}
+
+.review-rating {
+    font-size: 1.2rem;
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.review-content {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.review-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-actions {
+    margin-top: 10px;
+}
+
+.review-actions .btn {
+    margin-right: 5px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+.review-actions .btn-warning {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.review-actions .btn-warning:hover {
+    background-color: #0056b3;
+}
+
+.review-actions .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.review-actions .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .shop-detail-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shop-info {
+        width: 100%;
+    }
+
+    .reservation-box {
+        width: 100%;
+    }
+
+    .reviews-container {
+        padding: 10px;
+    }
+
+    .review-card {
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .reservation-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .btn-reserve {
+        font-size: 0.9rem;
+    }
+
+    .reviews-container h3 {
+        font-size: 1.2rem;
+    }
 }

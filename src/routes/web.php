@@ -23,6 +23,22 @@ use App\Http\Controllers\Auth\VerificationController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\ReviewController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/reviews/create/{shop}', [ReviewController::class, 'create'])->name('reviews.create');
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index'); // オプション
+
+    // 口コミ編集
+    Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+    Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+
+     // 口コミ削除
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+});
+
+
 
 //アドミン用
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -32,6 +48,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
      Route::get('/admin/create-manager', [AdminController::class, 'createManager'])->name('admin.createManager');
      Route::post('/admin/store-manager', [AdminController::class, 'storeManager'])->name('admin.storeManager');
+     Route::get('/admin/csv-import', [AdminController::class, 'importCsvForm'])->name('admin.importCsvForm');
+     Route::post('/admin/csv-import', [AdminController::class, 'importCsv'])->name('admin.importCsv');
 });
 
 // 店舗代表者用
@@ -50,17 +68,13 @@ Route::middleware(['auth', 'shop_manager'])->group(function () {
 
 
 Route::get('/email/verify/{id}/{hash}', [App\Http\Controllers\Auth\VerificationController::class, 'verify'])
-    //->middleware(['signed'])
+  
     ->name('verification.verify');
 
 Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites.store');
 Route::delete('/favorites/{shop}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 
 
-// ホームページ（お店の一覧ページ）のルート
-//Route::get('/', [ShopController::class, 'index'])->name('home');
-
-//Auth::routes(['verify' => true]);
 
 Route::get('/', [ShopController::class, 'index'])->name('shops.index');
 
@@ -116,11 +130,9 @@ Route::get('/mypage', [MyPageController::class, 'index'])->middleware('auth')->n
 Route::get('/menu', function () {
 
     if (Auth::check()) {
-        // ログイン状態のデバッグ
-        //return response()->json(['message' => 'User is logged in', 'user' => Auth::user()]);
+       
     } else {
-        // ログインしていない場合のメッセージ（デバッグ用）
-        // return response()->json(['message' => 'User is NOT logged in']);
+       
     }
 
     return view('menu');
@@ -130,14 +142,11 @@ Route::get('/menu', function () {
 Route::get('/menu-guest', function () {
 
     if (Auth::check()) {
-        // ログイン状態のデバッグ
-        //return response()->json(['message' => 'User is logged in', 'user' => Auth::user()]);
+       
     } else {
-        // ログインしていない場合のメッセージ（デバッグ用）
-        //return response()->json(['message' => 'User is NOT logged in']);
+        
     }
 
     return view('menu-guest');
 });
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

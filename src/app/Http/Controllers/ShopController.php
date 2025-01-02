@@ -10,40 +10,77 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
+
     public function index(Request $request)
-    {
-        $query = Shop::query();
+   {
+    $query = Shop::with(['reviews']); // reviewsリレーションを事前ロード
 
-        // リージョンでのフィルタリング
-        if ($request->filled('region_id')) {
-            $query->where('region_id', $request->region_id);
-        }
-
-        // ジャンルでのフィルタリング
-        if ($request->filled('genre_id')) {
-            $query->where('genre_id', $request->genre_id);
-        }
-
-        // 店名の部分一致検索
-        if ($request->filled('search')) {
-            $query->where('name', 'LIKE', '%' . $request->search . '%');
-        }
-
-        // フィルタリングした結果を取得
-        $shops = $query->get();
-
-        // リージョンとジャンルのリストをビューに渡す
-        $regions = Region::all();
-        $genres = Genre::all();
-
-        return view('shops.index', compact('shops', 'regions', 'genres'));
+    // リージョンでのフィルタリング
+    if ($request->filled('region_id')) {
+        $query->where('region_id', $request->region_id);
     }
 
-    public function show($id)
-    {
-      $shop = Shop::findOrFail($id);  // お店のIDで詳細を取得
-      return view('shops.shop-detail', ['shop' => $shop]);
+    // ジャンルでのフィルタリング
+    if ($request->filled('genre_id')) {
+        $query->where('genre_id', $request->genre_id);
     }
+
+    // 店名の部分一致検索
+    if ($request->filled('search')) {
+        $query->where('name', 'LIKE', '%' . $request->search . '%');
+    }
+
+            // ソート処理
+    if ($request->filled('sort')) {
+        if ($request->sort === 'high_rating') {
+            // 評価が高い順
+            $query->withAvg('reviews', 'rating')
+                ->orderByRaw('IFNULL(reviews_avg_rating, 0) DESC') // 平均評価がNULLの場合を0としてソート
+                ->orderBy('id'); // 同じ評価の場合はIDで安定ソート
+        } elseif ($request->sort === 'low_rating') {
+            // 評価が低い順
+            $query->withAvg('reviews', 'rating')
+                ->orderByRaw('IFNULL(reviews_avg_rating, 100) ASC') // NULLは非常に大きな値として扱う
+                ->orderBy('id'); // 同じ評価の場合はIDで安定ソート
+        } elseif ($request->sort === 'random') {
+            // ランダム
+            $query->inRandomOrder();
+        }
+    }
+
+    // フィルタリングした結果を取得
+    $shops = $query->get()->map(function ($shop) {
+        // 平均点と口コミ数を計算
+        $shop->average_rating = $shop->reviews->avg('rating') ?: 0; // 口コミがない場合は0
+        $shop->reviews_count = $shop->reviews->count(); // 口コミ数を計算
+        return $shop;
+    });
+
+    // リージョンとジャンルのリストをビューに渡す
+    $regions = Region::all();
+    $genres = Genre::all();
+
+    return view('shops.index', compact('shops', 'regions', 'genres'));
+   }
+
+   public function show($id)
+   {
+    // 指定された店舗の詳細を取得
+    $shop = Shop::with('reviews')->findOrFail($id);
+
+    // 店舗に紐づく口コミを取得（ユーザー情報も一緒に取得）
+    $reviews = $shop->reviews()->with('user')->latest()->get();
+
+    // 平均★数を計算
+    $averageRating = $shop->reviews->avg('rating') ?: 0; // 口コミがない場合は0
+
+    // 店舗詳細ビューにデータを渡す
+    return view('shops.shop-detail', [
+        'shop' => $shop,
+        'reviews' => $reviews,
+        'averageRating' => $averageRating, // 平均★数をビューに渡す
+    ]);
+   }
 
         // 新規店舗作成画面の表示
     public function create()

@@ -1,0 +1,133 @@
+/* 全体のコンテナ設定 */
+.review-container {
+    display: flex;
+    flex-direction: row;
+    /* 横並びに配置 */
+    justify-content: space-between;
+    align-items: flex-start;
+    /* 上端を揃える */
+    padding: 20px;
+    gap: 20px;
+    /* 左右の間隔を追加 */
+}
+
+/* 店舗カードのセクション */
+.shop-card-section {
+    flex: 1;
+    /* 左側の幅を調整 */
+    max-width: 400px;
+    /* 最大幅を制限 */
+}
+
+/* 口コミフォームのセクション */
+.review-form-section {
+    flex: 2;
+    /* 右側の幅を広めに */
+    max-width: 600px;
+}
+
+/* 各フォームグループのスタイル */
+.form-group {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 星の評価部分 */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    justify-content: flex-end;
+    /* 左寄せ */
+    font-size: 24px;
+}
+
+/* ラジオボタンを非表示 */
+.rating input[type="radio"] {
+    display: none;
+}
+
+/* 星ラベルの基本スタイル */
+.rating label {
+    cursor: pointer;
+    color: #ccc;
+}
+
+.rating input[type="radio"]:checked+label,
+.rating input[type="radio"]:checked+label~label {
+    color: #ffc107;
+}
+
+.rating label:hover,
+.rating label:hover~label {
+    color: #ffc107;
+}
+
+/* ドラッグ＆ドロップエリアのスタイル */
+#drop-zone {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    text-align: center;
+    background-color: #e0f7fa;
+    /* 水色背景 */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#drop-zone.dragover {
+    background-color: #b2ebf2;
+    /* ドラッグ中の少し濃い水色 */
+    border-color: #0056b3;
+}
+
+/* 選択されたファイル名のスタイル */
+.file-name {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* テキストエリアのスタイル */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+/* エラーメッセージのスタイル */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.alert-danger {
+    color: red;
+    /* テキストを赤色に */
+    font-size: 14px;
+    /* 必要に応じてフォントサイズを調整 */
+    font-weight: bold;
+    /* 太字にする場合 */
+    margin-bottom: 20px;
+    /* 他の要素との余白を追加 */
+}
+
+/* 送信ボタンのスタイル */
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}

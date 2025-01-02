@@ -5,6 +5,16 @@
     <div class="shop-details">
         <h3>{{ $shop->name }}</h3>
         <p>#{{ $shop->region->name }} #{{ $shop->genre->name }}</p>
+
+        <!-- 平均点と口コミ数を表示 -->
+        <p class="shop-rating">
+            @if ($shop->reviews_count > 0)
+                評価: {{ number_format($shop->average_rating, 1) }} ({{ $shop->reviews_count }}件)
+            @else
+                口コミなし
+            @endif
+        </p>
+
         <a href="{{ route('shops.show', $shop->id) }}" class="btn btn-primary">詳しく見る</a>
 
         @auth

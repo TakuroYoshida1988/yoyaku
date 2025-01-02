@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="menu-container">
-        <button class="menu-close-btn">×</button>
+        
         <ul class="menu-list">
             <li><a href="{{ url('/') }}">Home</a></li>
             <li><a href="{{ url('/register') }}">Registration</a></li>

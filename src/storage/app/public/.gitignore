@@ -1,4 +1,5 @@
 *
 !shops/
 !shops/**
+!reviews/
 !.gitignore

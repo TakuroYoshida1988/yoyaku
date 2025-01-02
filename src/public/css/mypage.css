@@ -1,11 +1,16 @@
 .mypage-container {
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .mypage-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 20px;
+    /* 横並びの間隔 */
 }
 
 .reservation-section,
@@ -15,8 +20,10 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
+/* 予約ボックス */
 .reservation-box {
     position: relative;
     background-color: #e3f2fd;
@@ -24,8 +31,10 @@
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
+/* お気に入り店舗リスト */
 .shop-list {
     display: flex;
     flex-wrap: wrap;
@@ -34,13 +43,22 @@
 
 .shop-card {
     width: calc(50% - 10px);
+    /* 2列表示 */
 }
 
 .qr-code {
     text-align: center;
-    margin: 20px 0;
+    margin: 20px auto;
+    width: 150px;
+    height: 150px;
 }
 
+.qr-code img {
+    width: 100%;
+    height: auto;
+}
+
+/* 削除ボタン */
 .btn-delete {
     position: absolute;
     top: 10px;
@@ -77,24 +95,6 @@
     background-color: #0056b3;
 }
 
-.qr-code {
-    text-align: center;
-    margin: 20px 0;
-    width: 150px;
-    /* QRコードの幅を指定 */
-    height: 150px;
-    /* QRコードの高さを指定 */
-    margin: 0 auto;
-    /* 中央寄せ */
-}
-
-.qr-code img {
-    width: 100%;
-    /* QRコード画像の幅を親要素に合わせる */
-    height: auto;
-    /* 高さは自動調整 */
-}
-
 .visited-shops-link {
     margin-top: 20px;
     text-align: center;
@@ -114,16 +114,46 @@
     background-color: #2980b9;
 }
 
-/* 横幅800px以下の場合のデザイン調整 */
+/* 横幅800px以下の場合 */
 @media (max-width: 800px) {
+    .mypage-content {
+        flex-direction: column;
+        gap: 20px;
+        /* 上下にスペースを追加 */
+    }
+
+    .reservation-section,
+    .favorites-section {
+        width: 100%;
+        /* フル幅表示 */
+    }
 
     .shop-list {
-        flex-direction: column;
-        /* 縦並びに */
+        gap: 15px;
     }
 
     .shop-card {
         width: 100%;
         /* 1列表示 */
+    }
+}
+
+/* 横幅480px以下の場合 */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .btn-edit,
+    .btn-delete,
+    .btn-visited-shops {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .qr-code {
+        width: 140px;
+        height: 140px;
     }
 }

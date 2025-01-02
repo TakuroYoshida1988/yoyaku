@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('password'); // パスワード
             $table->boolean('is_admin')->default(false); // 管理者フラグ
             $table->boolean('is_shop_manager')->default(false); // 店舗管理者フラグ
-
             $table->timestamp('email_verified_at')->nullable(); // メール認証日時
             $table->rememberToken();
             $table->timestamps();

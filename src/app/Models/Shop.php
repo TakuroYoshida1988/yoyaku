@@ -29,4 +29,22 @@ class Shop extends Model
         return $this->belongsTo(User::class, 'manager_id');
     }
 
+    public function reviews()
+   {
+      return $this->hasMany(Review::class);
+   }
+
+   public function getAverageRatingAttribute()
+   {
+
+    // 口コミがない場合は0を返す
+    if ($this->reviews()->count() === 0) {
+        return 0;
+    }
+
+    // 平均★数を計算
+    return round($this->reviews()->avg('rating'), 1); // 小数第1位まで表示
+
+   }
+
 }

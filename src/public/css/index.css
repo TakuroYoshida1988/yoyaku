@@ -1,8 +1,8 @@
 /* 全体のコンテナ */
 .shop-container {
-    max-width: 100%;
-    padding: 0 10px;
-    /* 左右の端に少しだけ余白 */
+    max-width: 1200px;
+    padding: 0 15px;
+    /* 左右の余白を広げる */
     margin: 0 auto;
 }
 
@@ -20,21 +20,69 @@
 /* 検索フォームのスタイル */
 .search-form {
     display: flex;
+    flex-wrap: wrap;
+    /* フォームを折り返し可能に */
     gap: 10px;
     margin-bottom: 20px;
+    align-items: center;
 }
 
 .search-form .form-select,
 .search-form input[type="text"] {
-    padding: 5px;
+    padding: 10px;
     font-size: 16px;
+    flex: 1 1 200px;
+    /* 最小幅200px、最大で伸縮 */
+    box-sizing: border-box;
+}
+
+.search-form .btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    flex: 0 0 auto;
+    /* ボタンは伸縮しない */
 }
 
 /* メディアクエリで列数を変更 */
+/* 横幅が1200px以下の場合、3列表示 */
+@media (max-width: 1200px) {
+    .shop-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* 横幅が800px以下の場合、2列表示 */
 @media (max-width: 800px) {
     .shop-list {
         grid-template-columns: repeat(2, 1fr);
-        /* 2列 */
+    }
+
+    .search-form {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .search-form .form-select,
+    .search-form input[type="text"],
+    .search-form .btn {
+        flex: 1 1 auto;
+    }
+}
+
+/* 横幅が480px以下の場合、1列表示 */
+@media (max-width: 480px) {
+    .shop-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .search-form {
+        gap: 10px;
+    }
+
+    .search-form .form-select,
+    .search-form input[type="text"],
+    .search-form .btn {
+        width: 100%;
     }
 }

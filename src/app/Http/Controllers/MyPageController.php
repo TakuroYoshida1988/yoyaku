@@ -44,29 +44,35 @@ class MyPageController extends Controller
         }
 
         // ユーザーのお気に入りリストを取得
-        $favorites = $user->favorites()->with('shop')->get();
+        $favorites = $user->favorites()->with(['shop.reviews'])->get();
+
+        // お気に入り店舗に評価データを設定
+        foreach ($favorites as $favorite) {
+            $shop = $favorite->shop;
+            if ($shop) {
+                $shop->average_rating = $shop->reviews->avg('rating') ?: 0; // 平均評価
+                $shop->reviews_count = $shop->reviews->count(); // 口コミ件数
+            }
+        }
 
         // マイページビューに未来の予約と来店済み店舗リストを渡す
         return view('mypage', compact('reservations', 'visitedReservations', 'favorites'));
     }
 
     public function visitedShops()
-   {
+    {
+        // ログインしているユーザーを取得
+        $user = Auth::user();
 
-    // ログインしているユーザーを取得
-     $user = Auth::user();
+        // 現在の時刻
+        $now = Carbon::now();
 
-    // 現在の時刻
-     $now = Carbon::now();
+        // ユーザーの来店済み店舗リストを取得 (過去の予約)
+        $visitedShops = Reservation::where('user_id', $user->id)
+            ->where('reservation_date', '<=', $now)  // 過去の予約のみ
+            ->get();
 
-    // ユーザーの来店済み店舗リストを取得 (過去の予約)
-     $visitedShops = Reservation::where('user_id', $user->id)
-        ->where('reservation_date', '<=', $now)  // 過去の予約のみ
-        ->get();
-
-    // 来店店舗一覧ページに渡す
-     return view('visited-shops', compact('visitedShops'));
-     //return view('shops.visited-shops');
-   }
-
+        // 来店店舗一覧ページに渡す
+        return view('visited-shops', compact('visitedShops'));
+    }
 }

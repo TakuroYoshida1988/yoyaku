@@ -6,6 +6,15 @@
 <div class="shop-container">
     {{-- 検索フォームの追加 --}}
     <form action="{{ route('shops.index') }}" method="GET" class="search-form">
+
+       {{-- ソート用のセレクトボックス --}}
+        <select name="sort" class="form-select">
+            <option value="">Sort by</option>
+            <option value="random" {{ request('sort') == 'random' ? 'selected' : '' }}>ランダム</option>
+            <option value="high_rating" {{ request('sort') == 'high_rating' ? 'selected' : '' }}>評価が高い順</option>
+            <option value="low_rating" {{ request('sort') == 'low_rating' ? 'selected' : '' }}>評価が低い順</option>
+        </select>
+
         <select name="region_id" class="form-select">
             <option value="">All regions</option>
             @foreach($regions as $region)
@@ -26,7 +35,7 @@
 
         <input type="text" name="search" placeholder="Search by name" value="{{ request('search') }}">
 
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary">実行</button>
     </form>
 
     <div class="shop-list">
