@@ -128,10 +128,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 これにより、開発中に送信されるすべてのメールがMailHogで確認できるようになります。
 
 ### STRIPEの設定
-- `.env` ファイルに以下の設定を追加します。これにより、STRIPEでの決済機能をテストモードで実行できます。
-
-STRIPE_KEY=pk_test_51QHQpuAhHzFtXlkfNpveoaQjqa7ynfHohNJYc5ny25LkmztayiNHBOijM10WnwiGvomvdO8RUcaJY20cJWZb6Wpx00xau9mgYh
-STRIPE_SECRET=sk_test_51QHQpuAhHzFtXlkfaN8pqBK0BW6qxabLac7NNsbyiWn6fjegZj9juzFycdJZ1cpSKD7gIORBpEWvYRRqU0NeaqnZ00Hx6alCI8
+- `.env` ファイルに各自のSTRIPE_KEYとSTRIPE_SECRETの設定を追加します。これによりSTRIPEでの決済機能を実行できます。
 
 ## 使用技術
 - PHP 8.0
@@ -140,10 +137,10 @@ STRIPE_SECRET=sk_test_51QHQpuAhHzFtXlkfaN8pqBK0BW6qxabLac7NNsbyiWn6fjegZj9juzFyc
 - MailHog
 
 ## テーブル設計
-![table](https://github.com/user-attachments/assets/b43f7c22-027e-4a6d-9fca-b702d05d8f8b)
+![テーブル仕様書追加](https://github.com/user-attachments/assets/f87081aa-24b5-4908-92c2-2f3e1b2821dc)
 
 ## ER図
-![ER](https://github.com/user-attachments/assets/e435c362-7564-4fe4-87be-e05dd3986ed9)
+![ER図追加](https://github.com/user-attachments/assets/ece6dccd-fefe-4520-ad2f-55d78aa7dac8)
 
 ## URL
 - 動作環境：`http://localhost/`
