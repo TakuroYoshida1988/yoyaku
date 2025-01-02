@@ -67,6 +67,8 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ![review](https://github.com/user-attachments/assets/3f4997f3-43d9-4813-90b5-e5f4ec77082f)
 
+![review2](https://github.com/user-attachments/assets/6b7a2f5b-619a-45a7-9c77-0d160026a954)
+
 ## 環境構築
 
 ### Dockerビルド
