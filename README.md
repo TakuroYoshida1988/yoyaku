@@ -46,6 +46,11 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 一般ユーザー name : User-example、email : User@example.com、password : Userpassword
 
+# 追加機能
+・口コミ機能
+・店舗一覧ソート機能
+・csvインポート機能
+
 ## 環境構築
 
 ### Dockerビルド
