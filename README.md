@@ -4,7 +4,7 @@
 ユーザー登録を行い、ログインすると、飲食店一覧ページから店舗の予約とお気に入りへの追加を行うことができます。
 マイページにて、予約情報とお気に入りに追加した店舗の一覧を確認することができます。
 
-![ichiran](https://github.com/user-attachments/assets/edfefd04-3adf-49ab-ac9a-f18d380e7598)
+![ichiran2](https://github.com/user-attachments/assets/ec67e482-7507-42a4-8439-bd3b7fb7f462)
 
 ![mypage](https://github.com/user-attachments/assets/8f7741c9-0b38-4609-a5d0-0472d36cc8ba)
 
