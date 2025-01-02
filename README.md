@@ -79,7 +79,7 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ・インポートできるCSVファイルの形式
 
-以下の順でデータを記述してください:
+以下の順でデータを記述してください。
 
 店舗名（50文字以内）, 地域ID（下記の対応表を参照）, ジャンルID（下記の対応表を参照）, 店舗概要（400文字以内）, 画像URL
 
