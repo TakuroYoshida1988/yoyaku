@@ -11,7 +11,6 @@
 /* ページのタイトル */
 h1 {
     font-size: 1.8rem;
-    color: #333;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -42,57 +41,66 @@ h1 {
     outline: none;
 }
 
-/* エラーメッセージ */
-.text-danger {
-    font-size: 0.875rem;
-    color: #dc3545;
-    margin-top: 5px;
-}
-
-/* 現在の画像の表示 */
-img {
-    max-width: 100%;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-/* ボタンのスタイル */
-.btn {
-    display: inline-block;
+/* ファイル入力のラッパー */
+.file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* 縦並び */
+    align-items: flex-start;
+    /* 左寄せ */
+    gap: 10px;
+    /* ボタンとファイル名の間隔 */
     width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    /* コンテナ幅いっぱい */
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-/* 画像アップロードのフィールド */
+/* ファイル選択ボタン */
 input[type="file"] {
-    padding: 5px;
-    font-size: 1rem;
+    display: inline-block;
+    word-wrap: break-word;
+    /* テキストを折り返す */
+    white-space: normal;
+    /* 折り返しを許可 */
+    overflow-wrap: break-word;
+    /* 長い単語を折り返す */
+    width: 100%;
+    /* ボタンの幅を親要素に合わせる */
+    max-width: 100%;
+    /* 幅制限を追加 */
+    box-sizing: border-box;
+    padding: 10px;
+    /* ボタン内の余白を調整 */
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #fff;
+    font-size: 0.9rem;
+    /* フォントサイズを調整 */
+}
+
+/* ファイル名表示 */
+.file-name {
+    font-size: 0.85rem;
+    color: #555;
+    word-break: break-word;
+    /* 長いファイル名を折り返し */
 }
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
+    .file-input-wrapper {
+        flex-direction: column;
+        /* スマホでは縦並び */
+        align-items: flex-start;
+        /* 左寄せ */
     }
 
-    h1 {
-        font-size: 1.5rem;
+    input[type="file"] {
+        font-size: 0.8rem;
+        /* スマホ向けに文字サイズを調整 */
+    }
+
+    .file-name {
+        font-size: 0.8rem;
+        /* スマホ向けに文字サイズを小さく */
     }
 }

@@ -31,12 +31,19 @@
             @enderror
         </div>
 
-        <div class="form-group">
+        <div class="form-group file-input-group">
             <label for="image">画像 (任意)</label>
-            <input type="file" name="image" id="image" class="form-control">
+            <div class="file-input-wrapper">
+                <!-- カスタムボタン -->
+                <label for="image" class="custom-file-button"></label>
+                <!-- 隠れたファイル入力 -->
+                <input type="file" name="image" id="image" class="hidden-file-input">
+                <!-- 選択されたファイル名の表示 -->
+                <span class="file-name">ファイルが選択されていません</span>
+            </div>
             @if ($review->image)
-                <p>現在の画像:</p>
-                <img src="{{ asset('storage/' . $review->image) }}" alt="Review Image" style="max-width: 200px;">
+                <p>現在投稿されている画像:</p>
+                <img src="{{ asset('storage/' . $review->image) }}" alt="Review Image" style="max-width: 150px;">
             @endif
         </div>
 

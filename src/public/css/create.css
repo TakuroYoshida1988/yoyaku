@@ -2,27 +2,21 @@
 .review-container {
     display: flex;
     flex-direction: row;
-    /* 横並びに配置 */
     justify-content: space-between;
     align-items: flex-start;
-    /* 上端を揃える */
     padding: 20px;
     gap: 20px;
-    /* 左右の間隔を追加 */
 }
 
 /* 店舗カードのセクション */
 .shop-card-section {
     flex: 1;
-    /* 左側の幅を調整 */
     max-width: 400px;
-    /* 最大幅を制限 */
 }
 
 /* 口コミフォームのセクション */
 .review-form-section {
     flex: 2;
-    /* 右側の幅を広めに */
     max-width: 600px;
 }
 
@@ -37,8 +31,6 @@
     display: flex;
     flex-direction: row-reverse;
     gap: 10px;
-    justify-content: flex-end;
-    /* 左寄せ */
     font-size: 24px;
 }
 
@@ -69,7 +61,6 @@
     padding: 20px;
     text-align: center;
     background-color: #e0f7fa;
-    /* 水色背景 */
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -77,7 +68,6 @@
 
 #drop-zone.dragover {
     background-color: #b2ebf2;
-    /* ドラッグ中の少し濃い水色 */
     border-color: #0056b3;
 }
 
@@ -107,13 +97,9 @@ textarea {
 
 .alert-danger {
     color: red;
-    /* テキストを赤色に */
     font-size: 14px;
-    /* 必要に応じてフォントサイズを調整 */
     font-weight: bold;
-    /* 太字にする場合 */
     margin-bottom: 20px;
-    /* 他の要素との余白を追加 */
 }
 
 /* 送信ボタンのスタイル */
@@ -130,4 +116,57 @@ textarea {
 
 .btn-submit:hover {
     background-color: #0056b3;
+}
+
+/* --- レスポンシブ対応の追加 --- */
+
+/* スマートフォン用スタイル（横幅768px以下の場合） */
+@media (max-width: 768px) {
+    .review-container {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .shop-card-section {
+        max-width: 100%;
+        flex: none;
+        /* 幅を自動調整 */
+    }
+
+    .review-form-section {
+        max-width: 100%;
+        flex: none;
+        /* 幅を自動調整 */
+    }
+
+    #drop-zone {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    textarea {
+        height: 80px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* タブレット用スタイル（横幅1024px以下の場合） */
+@media (max-width: 1024px) {
+    .review-container {
+        gap: 15px;
+    }
+
+    #drop-zone {
+        font-size: 16px;
+        padding: 18px;
+    }
+
+    textarea {
+        height: 90px;
+    }
 }
