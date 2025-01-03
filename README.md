@@ -87,6 +87,8 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ※不要な行や列に文字列や空白やスペースがあるとエラーになりますので、新規ファイルから必要なセルに値を入力することをお勧めします。
 
+・CSVファイルを選択後に、「インポート」ボタンを押してください。
+
 ![management](https://github.com/user-attachments/assets/e25c310b-1c25-4f2b-a0d5-57d2e476a77e)
 
 ![csvインポート](https://github.com/user-attachments/assets/3635b272-0c50-4070-8da8-8c03e5d5c8d9)
