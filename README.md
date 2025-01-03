@@ -104,6 +104,7 @@ name : Admin、email : admin@example.com、password : adminpassword
 4. `php artisan key:generate`
 5. `php artisan migrate`
 6. `php artisan db:seed`
+7. `php artisan storage:link`（ストレージ内のファイルをウェブブラウザ上で公開可能にするため）
    
 
 ## MailHogの使用方法
