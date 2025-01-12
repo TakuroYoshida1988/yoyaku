@@ -41,8 +41,8 @@ class ReviewController extends Controller
         ->count();
 
          // 口コミが2件以上の場合はエラーを返す
-        if ($existingReviewsCount >= 2) {
-          return redirect()->back()->withErrors(['message' => '1店舗に対して投稿できる口コミは2件までです。']);
+        if ($existingReviewsCount >= 1) {
+          return redirect()->back()->withErrors(['message' => '1店舗に対して投稿できる口コミは1件までです。']);
         }
 
         // レビューを保存

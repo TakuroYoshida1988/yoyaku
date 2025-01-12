@@ -126,16 +126,26 @@ class AdminController extends Controller
         }
 
         try {
-            // 画像をダウンロードして保存
-            $imageContents = file_get_contents($imageUrl);
-            $imageName = basename(parse_url($imageUrl, PHP_URL_PATH));
-            $destinationPath = 'shops/' . $imageName;
+        // 画像のダウンロードを試みる
+        \Log::info("行{$lineNumber}: ダウンロードを試みるURL: {$imageUrl}");
+    
+        $imageContents = file_get_contents($imageUrl);
+        $originalName = basename(parse_url($imageUrl, PHP_URL_PATH));
+        $extension = pathinfo($originalName, PATHINFO_EXTENSION);
 
-            \Storage::disk('public')->put($destinationPath, $imageContents);
-            $imageFileName = $destinationPath;
+        // ユニークなファイル名を生成
+        $uniqueName = uniqid('shop_', true) . '.' . $extension;
+        $destinationPath = 'shops/' . $uniqueName;
+
+        // ファイルを保存
+        \Storage::disk('public')->put($destinationPath, $imageContents);
+
+         $imageFileName = $destinationPath; // 保存したファイル名を保持
+        \Log::info("行{$lineNumber}: 保存成功、保存パス: {$destinationPath}");
         } catch (\Exception $e) {
-            $errors[] = "行{$lineNumber} エラー: 画像のダウンロードまたは保存に失敗しました。詳細: {$e->getMessage()} （読み込まれた値: " . implode(', ', $row) . "）";
-            continue;
+        \Log::error("行{$lineNumber} エラー: 画像の保存に失敗しました。詳細: {$e->getMessage()}");
+        $errors[] = "行{$lineNumber} エラー: 画像の保存に失敗しました。詳細: {$e->getMessage()}";
+        continue;
         }
 
         // 地域IDとジャンルIDを検証
