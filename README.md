@@ -89,6 +89,8 @@ name : Admin、email : admin@example.com、password : adminpassword
 
 ・CSVファイルを選択後に、「インポート」ボタンを押してください。
 
+・インポートテスト用のファイル「import_test.csv」がプロジェクト直下にあり。
+
 ![management](https://github.com/user-attachments/assets/e25c310b-1c25-4f2b-a0d5-57d2e476a77e)
 
 ![csvインポート](https://github.com/user-attachments/assets/3635b272-0c50-4070-8da8-8c03e5d5c8d9)
